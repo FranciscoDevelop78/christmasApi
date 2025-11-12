@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.christmas.api.infrastructure.repository.persistence.mapper.IProductTestMyBatis">
+    <select id="getProductsTest" resultType="com.christmas.api.infrastructure.repository.ProductTestEntity">
+        SELECT id, description, prize
+        FROM product_test
+    </select>
+
+    <select id="getProductTestById" resultType="com.christmas.api.infrastructure.repository.ProductTestEntity">
+        SELECT id, description, prize
+        FROM product_test
+        WHERE id = #{id}
+    </select>
+
+    <insert id="createProductTest" parameterType="com.christmas.api.infrastructure.repository.ProductTestEntity"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO product_test (description, prize) VALUES (#{description}, #{prize})
+    </insert>
+    
+    <update id="updateProductTest" parameterType="com.christmas.api.infrastructure.repository.ProductTestEntity">
+        UPDATE product_test
+        <set>
+            description = #{productTest.description},
+            prize = #{productTest.prize}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updatePartiallyProductTest" parameterType="com.christmas.api.infrastructure.repository.ProductTestEntity">
+        UPDATE product_test
+        <set>
+            <if test="description !=null"> description = #{productTest.description}</if>
+            <if test="prize !=null"> prize = #{productTest.prize}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteProductTestById" parameterType="java.lang.Integer">
+        DELETE FROM product_test
+        WHERE id= #{id}
+    </delete>
+</mapper>
+

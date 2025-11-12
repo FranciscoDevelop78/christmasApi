@@ -1,0 +1,5 @@
+CREATE TABLE product_test(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(50) NOT NULL,
+    prize DECIMAL(4,2) NOT NULL
+);

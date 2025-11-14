@@ -2,11 +2,13 @@ package com.christmas.api.infrastructure.repository;
 
 import com.christmas.api.domain.ProductTest;
 import com.christmas.api.domain.service.mapper.IProductTestMapper;
+import com.christmas.api.infrastructure.controller.exceptions.ProductTestNotFoundException;
 import com.christmas.api.infrastructure.repository.persistence.mapper.IProductTestMyBatis;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,7 +24,7 @@ public class ProductTestRepository {
 
     }
 
-    public ProductTestEntity getProductTestById(Integer id) {
+    public Optional<ProductTestEntity> getProductTestById(Integer id) {
         return productTestMyBatis.getProductTestById(id);
     }
 

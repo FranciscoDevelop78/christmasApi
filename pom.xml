@@ -26,6 +26,7 @@
         <mysql.connector.java.version>8.0.33</mysql.connector.java.version>
         <flyway.version>11.15.0</flyway.version>
         <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
+        <spring.doc.version>2.2.0</spring.doc.version>
     </properties>
 
     <dependencies>
@@ -69,6 +70,12 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring.doc.version}</version>
         </dependency>
     </dependencies>
 

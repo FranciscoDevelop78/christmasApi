@@ -6,13 +6,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface IProductTestMyBatis {
 
     List<ProductTestEntity> getProductsTest ();
 
-    ProductTestEntity getProductTestById (@Param("id") Integer id);
+    Optional<ProductTestEntity> getProductTestById (@Param("id") Integer id);
 
     void  createProductTest(ProductTestEntity productTestToCreate);
 
